@@ -1,3 +1,4 @@
 Câu 1:
-Khi chọn Cancel, một hộp thoại xuất hiện và thông báo: "You've chose: NO"
+Khi chọn Cancel, một hộp thoại xuất hiện và thông báo: "You've chose: NO". 
 Câu 2:
+Để tùy chỉnh các tùy chọn trong hộp thoại, ta có thể sử dụng phương thức showOptionDialog của JOptionPane. 
