@@ -1,0 +1,3 @@
+Câu 1:
+Khi chọn Cancel, một hộp thoại xuất hiện và thông báo: "You've chose: NO"
+Câu 2:
