@@ -1,2 +1,3 @@
 # OOP-2024.1-NguyenThanhDat-20215028
-# Lab1: Đã hoàn thành 
+# Lab01: Đã hoàn thành 
+# Lab02: Đã hoàn thành
