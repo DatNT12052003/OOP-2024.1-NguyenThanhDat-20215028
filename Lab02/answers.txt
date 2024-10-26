@@ -1,0 +1,25 @@
+Java cho phép tạo nhiều constructor trong cùng một lớp, được gọi là nạp chồng constructor (constructor overloading). Điều này có nghĩa là có thể tạo các constructor khác nhau để khởi tạo đối tượng theo các cách khác nhau, miễn là các constructor này có danh sách tham số khác nhau.
+
+Trong trường hợp này, có thể tạo một constructor để khởi tạo đối tượng DigitalVideoDisc bằng tiêu đề (title) và một constructor khác để khởi tạo bằng thể loại (category). Vì Java phân biệt các constructor dựa vào danh sách tham số, nên mỗi constructor phải có danh sách tham số khác nhau để Java có thể xác định constructor nào cần gọi khi tạo đối tượng.
+
+Ví dụ:
+public class DigitalVideoDisc {
+    private String title;
+    private String category;
+
+    // Constructor khởi tạo DVD bằng tiêu đề
+    public DigitalVideoDisc(String title) {
+        this.title = title;
+    }
+
+    // Constructor khởi tạo DVD bằng thể loại
+    public DigitalVideoDisc(String category, boolean byCategory) {
+        this.category = category;
+    }
+}
+
+Trong ví dụ này:
+ - Constructor đầu tiên nhận một String đại diện cho tiêu đề (title) và gán nó cho thuộc tính title.
+ - Constructor thứ hai nhận một String đại diện cho thể loại (category) cùng với một tham số boolean byCategory để phân biệt với constructor đầu tiên.
+
+Khi tạo một đối tượng DigitalVideoDisc và truyền tham số phù hợp, Java sẽ tự động gọi constructor phù hợp với danh sách tham số đó. Điều này giúp tạo ra các cách khởi tạo khác nhau cho một đối tượng trong cùng một lớp.
