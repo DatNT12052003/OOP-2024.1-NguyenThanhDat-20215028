@@ -30,9 +30,15 @@ Khi tạo một đối tượng DigitalVideoDisc và truyền tham số phù h�
 
 Lab3:
 
-Q1: Java là một ngôn ngữ pass by value (truyền tham trị). Nhưng đối với các đối tượng, giá trị truyền vào là tham chiếu đến đối tượng, do đó nếu thay đổi nội dung của đối tượng, nó sẽ ảnh hưởng đến đối tượng gốc. Tuy nhiên, nếu thay đổi tham chiếu (ví dụ, gán lại tham chiếu), điều này sẽ không ảnh hưởng đến tham chiếu gốc.
+Q1: Is JAVA a Pass by Value or a Pass by Reference programming language? 
+Java là một ngôn ngữ pass by value (truyền tham trị). Nhưng đối với các đối tượng, giá trị truyền vào là tham chiếu đến đối tượng, do đó nếu thay đổi nội dung của đối tượng, nó sẽ ảnh hưởng đến đối tượng gốc. Tuy nhiên, nếu thay đổi tham chiếu (ví dụ, gán lại tham chiếu), điều này sẽ không ảnh hưởng đến tham chiếu gốc.
 
-Q2: Khi bạn gọi swap(jungleDVD, cinderellaDVD), phương thức swap chỉ thay đổi các bản sao của tham chiếu o1 và o2, chứ không thay đổi tham chiếu gốc ở phương thức main. Do đó, sau khi phương thức swap kết thúc, các đối tượng gốc jungleDVD và cinderellaDVD trong main không bị thay đổi.
+Q2: After the call of swap(jungleDVD, cinderellaDVD) why does the title of these two objects still remain?
+Khi bạn gọi swap(jungleDVD, cinderellaDVD), phương thức swap chỉ thay đổi các bản sao của tham chiếu o1 và o2, chứ không thay đổi tham chiếu gốc ở phương thức main. Do đó, sau khi phương thức swap kết thúc, các đối tượng gốc jungleDVD và cinderellaDVD trong main không bị thay đổi.
 
-Q3: Trong phương thức changeTitle, bạn đang thay đổi thuộc tính title của đối tượng jungleDVD. Vì đối tượng jungleDVD được truyền vào phương thức dưới dạng tham chiếu, khi bạn gọi dvd.setTitile(title), thực sự bạn đang thay đổi tiêu đề của đối tượng jungleDVD mà phương thức main đang tham chiếu đến.
+Q3: After the call of changeTitle(jungleDVD, cinderellaDVD.getTitle()) why is the title of the JungleDVD changed?
+Trong phương thức changeTitle, bạn đang thay đổi thuộc tính title của đối tượng jungleDVD. Vì đối tượng jungleDVD được truyền vào phương thức dưới dạng tham chiếu, khi bạn gọi dvd.setTitile(title), thực sự bạn đang thay đổi tiêu đề của đối tượng jungleDVD mà phương thức main đang tham chiếu đến.
 Tuy nhiên, khi bạn gán lại dvd thành một đối tượng mới (dvd = new DigitalVideoDisc(oldTitle);), chỉ có tham chiếu dvd trong phương thức changeTitle thay đổi, không ảnh hưởng đến đối tượng jungleDVD trong phương thức main. Vì vậy, jungleDVD vẫn giữ giá trị tiêu đề đã thay đổi trong phương thức.
+
+Q4: Write a toString() method for the DigitalVideoDisc class. What should be the return type of this method?
+Phương thức toString() trong Java là một phương thức được ghi đè từ lớp Object. Khi bạn gọi System.out.println() hoặc cố gắng in một đối tượng, phương thức này sẽ được tự động gọi để trả về chuỗi mô tả của đối tượng.

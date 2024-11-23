@@ -71,4 +71,8 @@ public class DigitalVideoDisc {
 		this.id = nbDigitalVideoDiscs;
 	}
 	
+	public String toString() {
+        return this.getId() +". DVD - " + this.getTitle() + " - " + this.getCategory() +" - " 
+				+ this.getDirector() + " - " + this.getLength() + " : " + this.getCost() + "$.";
+    }
 }

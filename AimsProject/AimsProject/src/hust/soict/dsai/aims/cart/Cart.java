@@ -62,8 +62,9 @@ public class Cart {
 		System.out.println("********************SEACRCH CART BY ID********************");
 		for(int i=0; i<qtyOrdered; i++) {
 			if(itemsOrdred[i].getId()==id) {
-				System.out.println(itemsOrdred[i].getId() +". DVD - " + itemsOrdred[i].getTitle() + " - " + itemsOrdred[i].getCategory() +" - " 
-						+ itemsOrdred[i].getDirector() + " - " + itemsOrdred[i].getLength() + " : " + itemsOrdred[i].getCost() + "$.");
+//				System.out.println(itemsOrdred[i].getId() +". DVD - " + itemsOrdred[i].getTitle() + " - " + itemsOrdred[i].getCategory() +" - " 
+//						+ itemsOrdred[i].getDirector() + " - " + itemsOrdred[i].getLength() + " : " + itemsOrdred[i].getCost() + "$.");
+				 System.out.println(itemsOrdred[i].toString());
 			}
 		}
 		System.out.println("*********************************************************");
@@ -73,8 +74,9 @@ public class Cart {
 		System.out.println("********************SEACRCH CART BY TITLE********************");
 		for(int i=0; i<qtyOrdered; i++) {
 			if(itemsOrdred[i].getTitle().equals(title)) {
-				System.out.println(itemsOrdred[i].getId() +". DVD - " + itemsOrdred[i].getTitle() + " - " + itemsOrdred[i].getCategory() +" - " 
-						+ itemsOrdred[i].getDirector() + " - " + itemsOrdred[i].getLength() + " : " + itemsOrdred[i].getCost() + "$.");
+//				System.out.println(itemsOrdred[i].getId() +". DVD - " + itemsOrdred[i].getTitle() + " - " + itemsOrdred[i].getCategory() +" - " 
+//						+ itemsOrdred[i].getDirector() + " - " + itemsOrdred[i].getLength() + " : " + itemsOrdred[i].getCost() + "$.");
+				 System.out.println(itemsOrdred[i].toString());
 			}
 		}
 		System.out.println("*************************************************************");
@@ -84,8 +86,9 @@ public class Cart {
 		System.out.println("********************CART********************");
 		System.out.println("Ordered Items:");
 		for(int i=0; i<qtyOrdered; i++) {
-			System.out.println(itemsOrdred[i].getId() +". DVD - " + itemsOrdred[i].getTitle() + " - " + itemsOrdred[i].getCategory() +" - " 
-					+ itemsOrdred[i].getDirector() + " - " + itemsOrdred[i].getLength() + " : " + itemsOrdred[i].getCost() + "$.");
+//			System.out.println(itemsOrdred[i].getId() +". DVD - " + itemsOrdred[i].getTitle() + " - " + itemsOrdred[i].getCategory() +" - " 
+//					+ itemsOrdred[i].getDirector() + " - " + itemsOrdred[i].getLength() + " : " + itemsOrdred[i].getCost() + "$.");
+			System.out.println(itemsOrdred[i].toString());
 		}
 		System.out.println("********************************************");
 		
