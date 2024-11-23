@@ -55,4 +55,15 @@ public class Cart {
 					+ itemsOrdred[i].getDirector() + ", " + itemsOrdred[i].getLength() + ", " + itemsOrdred[i].getCost() + ".");
 		}
 	}
+	
+	public void print() {
+		System.out.println("********************CART********************");
+		System.out.println("Ordered Items:");
+		for(int i=0; i<qtyOrdered; i++) {
+			System.out.println(itemsOrdred[i].getId() +". DVD - " + itemsOrdred[i].getTitile() + " - " + itemsOrdred[i].getCategory() +" - " 
+					+ itemsOrdred[i].getDirector() + " - " + itemsOrdred[i].getLength() + " : " + itemsOrdred[i].getCost() + "$.");
+		}
+		System.out.println("********************************************");
+		
+	}
 }
