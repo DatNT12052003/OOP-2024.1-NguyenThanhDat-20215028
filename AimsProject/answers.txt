@@ -1,3 +1,5 @@
+Lab2:
+
 Java cho phép tạo nhiều constructor trong cùng một lớp, được gọi là nạp chồng constructor (constructor overloading). Điều này có nghĩa là có thể tạo các constructor khác nhau để khởi tạo đối tượng theo các cách khác nhau, miễn là các constructor này có danh sách tham số khác nhau.
 
 Trong trường hợp này, có thể tạo một constructor để khởi tạo đối tượng DigitalVideoDisc bằng tiêu đề (title) và một constructor khác để khởi tạo bằng thể loại (category). Vì Java phân biệt các constructor dựa vào danh sách tham số, nên mỗi constructor phải có danh sách tham số khác nhau để Java có thể xác định constructor nào cần gọi khi tạo đối tượng.
@@ -23,3 +25,14 @@ Trong ví dụ này:
  - Constructor thứ hai nhận một String đại diện cho thể loại (category) cùng với một tham số boolean byCategory để phân biệt với constructor đầu tiên.
 
 Khi tạo một đối tượng DigitalVideoDisc và truyền tham số phù hợp, Java sẽ tự động gọi constructor phù hợp với danh sách tham số đó. Điều này giúp tạo ra các cách khởi tạo khác nhau cho một đối tượng trong cùng một lớp.
+
+
+
+Lab3:
+
+Q1: Java là một ngôn ngữ pass by value (truyền tham trị). Nhưng đối với các đối tượng, giá trị truyền vào là tham chiếu đến đối tượng, do đó nếu thay đổi nội dung của đối tượng, nó sẽ ảnh hưởng đến đối tượng gốc. Tuy nhiên, nếu thay đổi tham chiếu (ví dụ, gán lại tham chiếu), điều này sẽ không ảnh hưởng đến tham chiếu gốc.
+
+Q2: Khi bạn gọi swap(jungleDVD, cinderellaDVD), phương thức swap chỉ thay đổi các bản sao của tham chiếu o1 và o2, chứ không thay đổi tham chiếu gốc ở phương thức main. Do đó, sau khi phương thức swap kết thúc, các đối tượng gốc jungleDVD và cinderellaDVD trong main không bị thay đổi.
+
+Q3: Trong phương thức changeTitle, bạn đang thay đổi thuộc tính title của đối tượng jungleDVD. Vì đối tượng jungleDVD được truyền vào phương thức dưới dạng tham chiếu, khi bạn gọi dvd.setTitile(title), thực sự bạn đang thay đổi tiêu đề của đối tượng jungleDVD mà phương thức main đang tham chiếu đến.
+Tuy nhiên, khi bạn gán lại dvd thành một đối tượng mới (dvd = new DigitalVideoDisc(oldTitle);), chỉ có tham chiếu dvd trong phương thức changeTitle thay đổi, không ảnh hưởng đến đối tượng jungleDVD trong phương thức main. Vì vậy, jungleDVD vẫn giữ giá trị tiêu đề đã thay đổi trong phương thức.
