@@ -56,6 +56,28 @@ public class Cart {
 		}
 	}
 	
+	public void searchCartById(int id) {
+		System.out.println("********************SEACRCH CART BY ID********************");
+		for(int i=0; i<qtyOrdered; i++) {
+			if(itemsOrdred[i].getId()==id) {
+				System.out.println(itemsOrdred[i].getId() +". DVD - " + itemsOrdred[i].getTitile() + " - " + itemsOrdred[i].getCategory() +" - " 
+						+ itemsOrdred[i].getDirector() + " - " + itemsOrdred[i].getLength() + " : " + itemsOrdred[i].getCost() + "$.");
+			}
+		}
+		System.out.println("*********************************************************");
+	}
+	
+	public void searchCartByTitle(String title) {
+		System.out.println("********************SEACRCH CART BY TITLE********************");
+		for(int i=0; i<qtyOrdered; i++) {
+			if(itemsOrdred[i].getTitile().equals(title)) {
+				System.out.println(itemsOrdred[i].getId() +". DVD - " + itemsOrdred[i].getTitile() + " - " + itemsOrdred[i].getCategory() +" - " 
+						+ itemsOrdred[i].getDirector() + " - " + itemsOrdred[i].getLength() + " : " + itemsOrdred[i].getCost() + "$.");
+			}
+		}
+		System.out.println("*************************************************************");
+	}
+	
 	public void print() {
 		System.out.println("********************CART********************");
 		System.out.println("Ordered Items:");
