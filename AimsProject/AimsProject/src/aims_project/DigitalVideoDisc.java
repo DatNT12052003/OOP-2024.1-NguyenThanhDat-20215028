@@ -2,15 +2,15 @@ package aims_project;
 
 public class DigitalVideoDisc {
 	private int id;
-	private String titile;
+	private String title;
 	private String category;
 	private String director;
 	private int length;
 	private float cost;
 	private static int nbDigitalVideoDiscs = 0;
 	
-	public String getTitile() {
-		return titile;
+	public String getTitle() {
+		return title;
 	}
 	public String getCategory() {
 		return category;
@@ -24,13 +24,13 @@ public class DigitalVideoDisc {
 	public float getCost() {
 		return cost;
 	}	
-	public void setTitile(String titile) {
-		this.titile = titile;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 	
-	public DigitalVideoDisc(String titile) {
+	public DigitalVideoDisc(String title) {
 		super();
-		this.titile = titile;
+		this.title = title;
 	}
 	public int getId() {
 		return id;
@@ -41,18 +41,18 @@ public class DigitalVideoDisc {
 	
 	
 	
-	public DigitalVideoDisc(String titile, String category, float cost) {
+	public DigitalVideoDisc(String title, String category, float cost) {
 		super();
-		this.titile = titile;
+		this.title = title;
 		this.category = category;
 		this.cost = cost;
 		nbDigitalVideoDiscs++;
 		this.id = nbDigitalVideoDiscs;
 	}
 	
-	public DigitalVideoDisc(String titile, String category, String director, float cost) {
+	public DigitalVideoDisc(String title, String category, String director, float cost) {
 		super();
-		this.titile = titile;
+		this.title = title;
 		this.category = category;
 		this.director = director;
 		this.cost = cost;
@@ -60,9 +60,9 @@ public class DigitalVideoDisc {
 		this.id = nbDigitalVideoDiscs;
 	}
 	
-	public DigitalVideoDisc(String titile, String category, String director, int length, float cost) {
+	public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
 		super();
-		this.titile = titile;
+		this.title = title;
 		this.category = category;
 		this.director = director;
 		this.length = length;
