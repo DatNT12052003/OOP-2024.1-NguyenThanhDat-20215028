@@ -33,6 +33,8 @@ public class Aims {
 		anOrder.showCart();
 		System.out.println();
 		
+		anOrder.removeDigitalVideoDisc(dvdList[2]);
+		
 		DigitalVideoDisc dvd7 = new DigitalVideoDisc("Conan", "Manga", "Masashi Kishimoto", 19.00f);
 		DigitalVideoDisc dvd8 = new DigitalVideoDisc("Doraemon", "Manga", "Masashi Kishimoto", 23.05f);
 		anOrder.addDigitalVideoDisc(dvd7, dvd8);
