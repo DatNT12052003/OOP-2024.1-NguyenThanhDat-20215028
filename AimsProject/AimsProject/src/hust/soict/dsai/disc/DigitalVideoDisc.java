@@ -1,4 +1,4 @@
-package aims_project;
+package hust.soict.dsai.disc;
 
 public class DigitalVideoDisc {
 	private int id;

@@ -1,27 +1,31 @@
-package aims_project;
+package hust.soict.dsai.test.cart;
 
-public class StoreTest {
+import hust.soict.dsai.aims.cart.Cart;
+import hust.soict.dsai.disc.DigitalVideoDisc;
+
+public class CartTest {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Store store = new Store();
+		Cart cart = new Cart();
 		
 		DigitalVideoDisc dvd1 = new DigitalVideoDisc("The Lion King", "Animation", "Roger Allers", 87, 19.95f);
-		store.addDVD(dvd1);
+		cart.addDigitalVideoDisc(dvd1);
 		
 
 		DigitalVideoDisc dvd2 = new DigitalVideoDisc("Star Wars", "Science", "George Lucas", 87, 24.95f);
-		store.addDVD(dvd2);
+		cart.addDigitalVideoDisc(dvd2);
 		
 
 		DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin", "Animation", 18.99f);
-		store.addDVD(dvd3);
+		cart.addDigitalVideoDisc(dvd3);
 		
-		store.displayStore();
+		cart.print();
 		
-		store.removeDVD(dvd1);
+		cart.searchCartById(2);
 		
-		store.displayStore();
+		cart.searchCartByTitle("Aladin");
+
 	}
 
 }
