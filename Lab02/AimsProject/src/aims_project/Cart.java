@@ -11,6 +11,20 @@ public class Cart {
 		qtyOrdered++;
 	}
 	
+//	public void addDigitalVideoDisc(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2) {
+//		itemsOrdred[qtyOrdered] = dvd1;
+//		qtyOrdered++;
+//		itemsOrdred[qtyOrdered] = dvd2;
+//		qtyOrdered++;
+//	}
+//	
+//	public void addDigitalVideoDisc(DigitalVideoDisc[] dvdList) {
+//		for(int i=0; i<dvdList.length; i++) {
+//			itemsOrdred[qtyOrdered+i+1] = dvdList[i];
+//		}
+//		qtyOrdered+=dvdList.length;
+//	}
+//	
 	public float totalCost() {
 		float total = 0;
 		for(int i=0; i<qtyOrdered; i++) {
