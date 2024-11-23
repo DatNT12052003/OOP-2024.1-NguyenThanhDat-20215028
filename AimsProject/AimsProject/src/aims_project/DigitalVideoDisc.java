@@ -1,11 +1,13 @@
 package aims_project;
 
 public class DigitalVideoDisc {
+	private int id;
 	private String titile;
 	private String category;
 	private String director;
 	private int length;
 	private float cost;
+	private static int nbDigitalVideoDiscs = 0;
 	
 	public String getTitile() {
 		return titile;
@@ -30,12 +32,22 @@ public class DigitalVideoDisc {
 		super();
 		this.titile = titile;
 	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	
 	
 	public DigitalVideoDisc(String titile, String category, float cost) {
 		super();
 		this.titile = titile;
 		this.category = category;
 		this.cost = cost;
+		nbDigitalVideoDiscs++;
+		this.id = nbDigitalVideoDiscs;
 	}
 	
 	public DigitalVideoDisc(String titile, String category, String director, float cost) {
@@ -44,6 +56,8 @@ public class DigitalVideoDisc {
 		this.category = category;
 		this.director = director;
 		this.cost = cost;
+		nbDigitalVideoDiscs++;
+		this.id = nbDigitalVideoDiscs;
 	}
 	
 	public DigitalVideoDisc(String titile, String category, String director, int length, float cost) {
@@ -53,5 +67,8 @@ public class DigitalVideoDisc {
 		this.director = director;
 		this.length = length;
 		this.cost = cost;
+		nbDigitalVideoDiscs++;
+		this.id = nbDigitalVideoDiscs;
 	}
+	
 }

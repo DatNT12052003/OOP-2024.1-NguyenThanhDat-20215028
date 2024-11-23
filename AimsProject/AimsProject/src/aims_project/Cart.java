@@ -51,7 +51,7 @@ public class Cart {
 	
 	public void showCart() {
 		for(int i=0; i<qtyOrdered; i++) {
-			System.out.println("DVD thứ " + (i+1) +": " + itemsOrdred[i].getTitile() + ", " + itemsOrdred[i].getCategory() +", " 
+			System.out.println("DVD có id là " + itemsOrdred[i].getId() +": " + itemsOrdred[i].getTitile() + ", " + itemsOrdred[i].getCategory() +", " 
 					+ itemsOrdred[i].getDirector() + ", " + itemsOrdred[i].getLength() + ", " + itemsOrdred[i].getCost() + ".");
 		}
 	}
