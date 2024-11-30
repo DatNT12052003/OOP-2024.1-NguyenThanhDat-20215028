@@ -83,7 +83,7 @@ public class CompactDisc extends Disc implements Playable{
 	    	listTrack.setLength(listTrack.length() - 2);
 	    }
 
-	    return this.getId() + ". DVD - " + this.getTitle() + " - " + this.getCategory() +
+	    return this.getId() + ". CD - " + this.getTitle() + " - " + this.getCategory() +
 	           " - " + listTrack + " : " + this.getCost() + "$.";
 	}
 }

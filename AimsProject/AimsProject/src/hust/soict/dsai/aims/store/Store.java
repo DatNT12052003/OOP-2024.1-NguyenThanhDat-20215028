@@ -15,15 +15,13 @@ public class Store {
 
     public void addMedia(Media media) {
         itemsInStore.add(media);
-        System.out.println("Đã thêm: " + media.getTitle());
     }
 
     public void removeMedia(Media media) {
         if (itemsInStore.contains(media)) {
             itemsInStore.remove(media);
-            System.out.println("Đã xóa: " + media.getTitle());
         } else {
-            System.out.println("Không tồn tại: " + media.getTitle());
+            System.out.println("Not found: " + media.getTitle());
         }
     }
     
