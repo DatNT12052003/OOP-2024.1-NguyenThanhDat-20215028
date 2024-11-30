@@ -51,7 +51,7 @@ public class Book extends Media{
 	        listAuthor.setLength(listAuthor.length() - 2);
 	    }
 
-	    return this.getId() + ". DVD - " + this.getTitle() + " - " + this.getCategory() +
+	    return this.getId() + ". Book - " + this.getTitle() + " - " + this.getCategory() +
 	           " - " + listAuthor + " : " + this.getCost() + "$.";
 	}
 }

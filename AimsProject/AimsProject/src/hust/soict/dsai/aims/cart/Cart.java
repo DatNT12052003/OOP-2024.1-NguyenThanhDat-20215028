@@ -26,10 +26,6 @@ public class Cart {
 	    }
 	}
 	
-	public void addCompactDisc(CompactDisc cd) {
-		itemsOrdered.add(cd);
-	}
-	
 	public void addBook(Book book) {
 		itemsOrdered.add(book);
 	}
@@ -100,5 +96,9 @@ public class Cart {
 
 	public void emptyCart() {
 		itemsOrdered.clear();
+	}
+
+	public ArrayList<Media> getItemsOrdered() {
+		return itemsOrdered;
 	}
 }
