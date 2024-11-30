@@ -1,7 +1,7 @@
 Lab2:
-Question: If you create a constructor method to build a DVD by title then create a constructor method to build a DVD by category. Does JAVA allow you to do this?
 
-Java cho phép tạo nhiều constructor trong cùng một lớp, được gọi là nạp chồng constructor (constructor overloading). Điều này có nghĩa là có thể tạo các constructor khác nhau để khởi tạo đối tượng theo các cách khác nhau, miễn là các constructor này có danh sách tham số khác nhau.
+Question: If you create a constructor method to build a DVD by title then create a constructor method to build a DVD by category. Does JAVA allow you to do this?
+-> Java cho phép tạo nhiều constructor trong cùng một lớp, được gọi là nạp chồng constructor (constructor overloading). Điều này có nghĩa là có thể tạo các constructor khác nhau để khởi tạo đối tượng theo các cách khác nhau, miễn là các constructor này có danh sách tham số khác nhau.
 
 Trong trường hợp này, có thể tạo một constructor để khởi tạo đối tượng DigitalVideoDisc bằng tiêu đề (title) và một constructor khác để khởi tạo bằng thể loại (category). Vì Java phân biệt các constructor dựa vào danh sách tham số, nên mỗi constructor phải có danh sách tham số khác nhau để Java có thể xác định constructor nào cần gọi khi tạo đối tượng.
 
@@ -32,14 +32,79 @@ Khi tạo một đối tượng DigitalVideoDisc và truyền tham số phù h�
 Lab3:
 
 Q1: Is JAVA a Pass by Value or a Pass by Reference programming language? 
-Java là một ngôn ngữ pass by value (truyền tham trị). Nhưng đối với các đối tượng, giá trị truyền vào là tham chiếu đến đối tượng, do đó nếu thay đổi nội dung của đối tượng, nó sẽ ảnh hưởng đến đối tượng gốc. Tuy nhiên, nếu thay đổi tham chiếu (ví dụ, gán lại tham chiếu), điều này sẽ không ảnh hưởng đến tham chiếu gốc.
+-> Java là một ngôn ngữ pass by value (truyền tham trị). Nhưng đối với các đối tượng, giá trị truyền vào là tham chiếu đến đối tượng, do đó nếu thay đổi nội dung của đối tượng, nó sẽ ảnh hưởng đến đối tượng gốc. Tuy nhiên, nếu thay đổi tham chiếu (ví dụ, gán lại tham chiếu), điều này sẽ không ảnh hưởng đến tham chiếu gốc.
 
 Q2: After the call of swap(jungleDVD, cinderellaDVD) why does the title of these two objects still remain?
-Khi bạn gọi swap(jungleDVD, cinderellaDVD), phương thức swap chỉ thay đổi các bản sao của tham chiếu o1 và o2, chứ không thay đổi tham chiếu gốc ở phương thức main. Do đó, sau khi phương thức swap kết thúc, các đối tượng gốc jungleDVD và cinderellaDVD trong main không bị thay đổi.
+-> Khi bạn gọi swap(jungleDVD, cinderellaDVD), phương thức swap chỉ thay đổi các bản sao của tham chiếu o1 và o2, chứ không thay đổi tham chiếu gốc ở phương thức main. Do đó, sau khi phương thức swap kết thúc, các đối tượng gốc jungleDVD và cinderellaDVD trong main không bị thay đổi.
 
 Q3: After the call of changeTitle(jungleDVD, cinderellaDVD.getTitle()) why is the title of the JungleDVD changed?
-Trong phương thức changeTitle, bạn đang thay đổi thuộc tính title của đối tượng jungleDVD. Vì đối tượng jungleDVD được truyền vào phương thức dưới dạng tham chiếu, khi bạn gọi dvd.setTitile(title), thực sự bạn đang thay đổi tiêu đề của đối tượng jungleDVD mà phương thức main đang tham chiếu đến.
+-> Trong phương thức changeTitle, bạn đang thay đổi thuộc tính title của đối tượng jungleDVD. Vì đối tượng jungleDVD được truyền vào phương thức dưới dạng tham chiếu, khi bạn gọi dvd.setTitile(title), thực sự bạn đang thay đổi tiêu đề của đối tượng jungleDVD mà phương thức main đang tham chiếu đến.
 Tuy nhiên, khi bạn gán lại dvd thành một đối tượng mới (dvd = new DigitalVideoDisc(oldTitle);), chỉ có tham chiếu dvd trong phương thức changeTitle thay đổi, không ảnh hưởng đến đối tượng jungleDVD trong phương thức main. Vì vậy, jungleDVD vẫn giữ giá trị tiêu đề đã thay đổi trong phương thức.
 
 Q4: Write a toString() method for the DigitalVideoDisc class. What should be the return type of this method?
-Phương thức toString() trong Java là một phương thức được ghi đè từ lớp Object. Khi bạn gọi System.out.println() hoặc cố gắng in một đối tượng, phương thức này sẽ được tự động gọi để trả về chuỗi mô tả của đối tượng.
+-> Phương thức toString() trong Java là một phương thức được ghi đè từ lớp Object. Khi bạn gọi System.out.println() hoặc cố gắng in một đối tượng, phương thức này sẽ được tự động gọi để trả về chuỗi mô tả của đối tượng.
+
+
+
+Lab4:
+Question: Which classes are aggregates of other classes?
+-> Lớp CompactDice là tổng hợp của lớp Track
+   Lớp Cart là tổng hợp của lớp Media
+   Lớp Store là tổng hợp của lớp Media
+
+Question: Checking all constructors of whole classes if they initialize for their parts?
+-> Ok!
+
+Question: When overriding the equals() method of the Object class, you will have to cast the Object parameter obj to the type of Object that you are dealing with. For example, in the Media class, you must cast the Object obj to a Media, and then check the equality of the two objects’ attributes as the above requirements (i.e. title for Media; title and length for Track). If the passing object is not an instance of Media, what happens?
+-> Điều này có thể gây lỗi tại runtime, làm gián đoạn chương trình.
+
+Question: Alternatively, to compare items in the cart, instead of using Comparator, we can use the Comparable interface and override the compareTo()method. You can refer to the Java docs to see the information of this interface. 
+Suppose we are taking this Comparable interface approach.
+
+Q1:	What class should implement the Comparable interface?
+-> Lớp Media nên triển khai giao diện Comparable, vì tất cả các loại phương tiện (DigitalVideoDisc, CompactDisc, Book,...) đều thừa kế từ lớp này. Điều này giúp áp dụng một quy tắc sắp xếp chung cho mọi loại phương tiện.
+
+Q2:	In those classes, how should you implement the compareTo()method be to reflect the ordering that we want?
+- Sắp xếp TitleCost:
+@Override
+public int compareTo(Media other) {
+    int titleComparison = this.title.compareToIgnoreCase(other.title);
+    if (titleComparison != 0) {
+        return titleComparison; 
+    }
+    return Float.compare(this.cost, other.cost);
+}
+- Sắp xếp CostTitle:
+@Override
+public int compareTo(Media other) {
+    int costComparison = Float.compare(other.cost, this.cost);
+    if (costComparison != 0) {
+        return costComparison;
+    }
+    return this.title.compareToIgnoreCase(other.title);
+}
+
+Q3:	Can we have two ordering rules of the item (by title then cost and by cost then title) if we use this Comparable interface approach?
+-> Không, giao diện Comparable chỉ cho phép triển khai một quy tắc sắp xếp duy nhất trong phương thức compareTo().
+Nếu cần nhiều hơn một quy tắc sắp xếp (ví dụ: theo tiêu đề, theo chi phí), ta nên sử dụng Comparator thay thế.
+
+Q4:	Suppose the DVDs has a different ordering rule from the other media types, that is by title, then decreasing length, then cost. How would you modify your code to allow this?
+-> Giả sử lớp DigitalVideoDisc có quy tắc sắp xếp khác (tiêu đề, rồi giảm dần theo độ dài, rồi đến chi phí), bạn có thể ghi đè phương thức compareTo() trong lớp con DigitalVideoDisc.
+@Override
+    public int compareTo(Media other) {
+        if (other instanceof DigitalVideoDisc) {
+            DigitalVideoDisc dvd = (DigitalVideoDisc) other;
+            int titleComparison = this.getTitle().compareToIgnoreCase(dvd.getTitle());
+            if (titleComparison != 0) {
+                return titleComparison;
+            }
+            int lengthComparison = Integer.compare(dvd.length, this.length);
+            if (lengthComparison != 0) {
+                return lengthComparison;
+            }
+            return Float.compare(this.getCost(), dvd.getCost());
+        }
+        return super.compareTo(other); 
+    }
+
+

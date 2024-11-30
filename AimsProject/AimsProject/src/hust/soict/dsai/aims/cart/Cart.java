@@ -1,96 +1,104 @@
 package hust.soict.dsai.aims.cart;
 
-import hust.soict.dsai.disc.DigitalVideoDisc;
+import java.util.ArrayList;
+import java.util.Collections;
+
+import hust.soict.dsai.aims.media.Book;
+import hust.soict.dsai.aims.media.CompactDisc;
+import hust.soict.dsai.aims.media.DigitalVideoDisc;
+import hust.soict.dsai.aims.media.Media;
 
 public class Cart {
-	public static final int MAX_NUMBER_ORDERED = 20;
-	private int qtyOrdered = 0;
-	private DigitalVideoDisc itemsOrdred[] = 
-			new DigitalVideoDisc[MAX_NUMBER_ORDERED];
+	private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
 	
 	public void addDigitalVideoDisc(DigitalVideoDisc dvd) {
-		itemsOrdred[qtyOrdered] = dvd;
-		qtyOrdered++;
+		itemsOrdered.add(dvd);
 	}
 	
 	public void addDigitalVideoDisc(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2) {
-		itemsOrdred[qtyOrdered] = dvd1;
-		qtyOrdered++;
-		itemsOrdred[qtyOrdered] = dvd2;
-		qtyOrdered++;
+		itemsOrdered.add(dvd1);
+		itemsOrdered.add(dvd2);
 	}
 	
 	public void addDigitalVideoDisc(DigitalVideoDisc[] dvdList) {
 	    for (int i = 0; i < dvdList.length; i++) {
-	        if (qtyOrdered + i < itemsOrdred.length) {
-	            itemsOrdred[qtyOrdered + i] = dvdList[i];
-	        }
+	    	itemsOrdered.add(dvdList[i]);
 	    }
-	    qtyOrdered += dvdList.length;
 	}
-
+	
+	public void addCompactDisc(CompactDisc cd) {
+		itemsOrdered.add(cd);
+	}
+	
+	public void addBook(Book book) {
+		itemsOrdered.add(book);
+	}
+	
+	public void addMedia(Media media) {
+		itemsOrdered.add(media);
+	}
+	
+	public void removeMedia(Media media) {
+		itemsOrdered.remove(media);
+	}
 	
 	public float totalCost() {
 		float total = 0;
-		for(int i=0; i<qtyOrdered; i++) {
-			total += itemsOrdred[i].getCost();
+		for(Media media : itemsOrdered) {
+			total += media.getCost();
 		}
 		return total;
 	}
 	
 	public void removeDigitalVideoDisc(DigitalVideoDisc dvd) {
-	    for (int i = 0; i < qtyOrdered; i++) {
-	        if (dvd.equals(itemsOrdred[i])) {
-	            for (int j = i; j < qtyOrdered - 1; j++) {
-	                itemsOrdred[j] = itemsOrdred[j + 1];
-	            }
-	            itemsOrdred[qtyOrdered - 1] = null;
-	            qtyOrdered--;
-	            break;
-	        }
-	    }
+		itemsOrdered.remove(dvd);
 	}
 	
 	public void showCart() {
-		for(int i=0; i<qtyOrdered; i++) {
-			System.out.println("DVD có id là " + itemsOrdred[i].getId() +": " + itemsOrdred[i].getTitle() + ", " + itemsOrdred[i].getCategory() +", " 
-					+ itemsOrdred[i].getDirector() + ", " + itemsOrdred[i].getLength() + ", " + itemsOrdred[i].getCost() + ".");
+		for(Media media : itemsOrdered) {
+			media.toString();
 		}
 	}
 	
-	public void searchCartById(int id) {
-		System.out.println("********************SEACRCH CART BY ID********************");
-		for(int i=0; i<qtyOrdered; i++) {
-			if(itemsOrdred[i].getId()==id) {
-//				System.out.println(itemsOrdred[i].getId() +". DVD - " + itemsOrdred[i].getTitle() + " - " + itemsOrdred[i].getCategory() +" - " 
-//						+ itemsOrdred[i].getDirector() + " - " + itemsOrdred[i].getLength() + " : " + itemsOrdred[i].getCost() + "$.");
-				 System.out.println(itemsOrdred[i].toString());
+	public Media searchCartById(int id) {
+		for(Media media : itemsOrdered) {
+			if(media.getId()==id) {
+				return media;
 			}
 		}
-		System.out.println("*********************************************************");
+		return null;
 	}
 	
-	public void searchCartByTitle(String title) {
-		System.out.println("********************SEACRCH CART BY TITLE********************");
-		for(int i=0; i<qtyOrdered; i++) {
-			if(itemsOrdred[i].getTitle().equals(title)) {
-//				System.out.println(itemsOrdred[i].getId() +". DVD - " + itemsOrdred[i].getTitle() + " - " + itemsOrdred[i].getCategory() +" - " 
-//						+ itemsOrdred[i].getDirector() + " - " + itemsOrdred[i].getLength() + " : " + itemsOrdred[i].getCost() + "$.");
-				 System.out.println(itemsOrdred[i].toString());
+	public Media searchCartByTitle(String title) {
+		for(Media media : itemsOrdered) {
+			if(media.getTitle().equals(title)) {
+				return media;
 			}
 		}
-		System.out.println("*************************************************************");
+		return null;
 	}
 	
-	public void print() {
+    // Sắp xếp theo tiêu đề và giá
+    public void sortByTitleCost() {
+        Collections.sort(itemsOrdered, Media.COMPARATOR_BY_TITLE_COST);
+    }
+
+    // Sắp xếp theo giá và tiêu đề
+    public void sortByCostTitle() {
+        Collections.sort(itemsOrdered, Media.COMPARATOR_BY_COST_TITLE);
+    }
+	
+	public void display() {
 		System.out.println("********************CART********************");
 		System.out.println("Ordered Items:");
-		for(int i=0; i<qtyOrdered; i++) {
-//			System.out.println(itemsOrdred[i].getId() +". DVD - " + itemsOrdred[i].getTitle() + " - " + itemsOrdred[i].getCategory() +" - " 
-//					+ itemsOrdred[i].getDirector() + " - " + itemsOrdred[i].getLength() + " : " + itemsOrdred[i].getCost() + "$.");
-			System.out.println(itemsOrdred[i].toString());
+		for(Media media : itemsOrdered) {
+			System.out.println(media.toString());
 		}
 		System.out.println("********************************************");
 		
+	}
+
+	public void emptyCart() {
+		itemsOrdered.clear();
 	}
 }
