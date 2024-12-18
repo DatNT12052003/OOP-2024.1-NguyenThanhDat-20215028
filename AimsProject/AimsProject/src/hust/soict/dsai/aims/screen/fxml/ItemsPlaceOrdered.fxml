@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="121.0" prefWidth="320.0" style="-fx-background-color: #eeefc4; -fx-border-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="itemOrderedTitlelbl" layoutX="23.0" layoutY="14.0" prefHeight="27.0" prefWidth="294.0" text="Label">
+         <font>
+            <Font name="Maiandra GD" size="18.0" />
+         </font>
+      </Label>
+      <Line endX="214.80001831054688" endY="7.62939453125E-6" layoutX="77.0" layoutY="73.0" startX="42.800018310546875" startY="7.62939453125E-6" />
+      <Label fx:id="itemOrderedCategorylbl" layoutX="23.0" layoutY="48.0" prefHeight="20.0" prefWidth="294.0" text="Label">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="itemOrderedCostlbl" layoutX="208.0" layoutY="82.0" prefHeight="25.0" prefWidth="118.0" text="Label">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>

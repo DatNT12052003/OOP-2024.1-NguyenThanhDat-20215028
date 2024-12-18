@@ -30,6 +30,12 @@ public class CompactDisc extends Disc implements Playable{
 		this.artist = artist;
 	}
 	
+	public CompactDisc(String title, String category, float cost, String artist, List<Track> tracks) {
+		super(title, category, cost);
+		this.artist = artist;
+		this.tracks = tracks;
+	}
+	
 	public void addTrack(Track track) {
 		if(!tracks.contains(track)) {
 			tracks.add(track);
@@ -40,8 +46,8 @@ public class CompactDisc extends Disc implements Playable{
 		tracks.remove(track);
 	}
 	
-	public int getLength() {
-	    int totalLength = 0;
+	public float getLength() {
+	    float totalLength = 0.0f;
 
 	    if (tracks != null) {
 	        for (Track track : tracks) {

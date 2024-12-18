@@ -2,7 +2,7 @@ package hust.soict.dsai.aims.media;
 
 public abstract class Disc extends Media{
 	private String director;
-	private int length;
+	private float length;
 
 	public Disc() {
 		super();
@@ -20,7 +20,7 @@ public abstract class Disc extends Media{
 		super(title, category, cost);
 	}
 	
-	public Disc(String title, String category, int length, float cost) {
+	public Disc(String title, String category, float length, float cost) {
 		super(title, category, cost);
 		this.length = length;
 	}
@@ -30,7 +30,7 @@ public abstract class Disc extends Media{
 		this.director = director;
 	}
 	
-	public Disc(String title, String category, String director, int length, float cost) {
+	public Disc(String title, String category, String director, float length, float cost) {
 		super(title, category, cost);
 		this.director = director;
 		this.length = length;
@@ -44,7 +44,7 @@ public abstract class Disc extends Media{
 		this.director = director;
 	}
 
-	public int getLength() {
+	public float getLength() {
 		return length;
 	}
 

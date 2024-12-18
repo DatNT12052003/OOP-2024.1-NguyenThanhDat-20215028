@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox alignment="TOP_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label prefHeight="54.0" prefWidth="362.0" text="  Payment" textAlignment="CENTER" textFill="#2a89c4" textOverrun="CENTER_ELLIPSIS">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Label>
+      <Line endX="249.6929168701172" endY="-0.7071090340614319" startX="-100.0" />
+      <ScrollPane prefHeight="388.0" prefWidth="350.0">
+         <content>
+            <GridPane fx:id="gridPane">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+            </GridPane>
+         </content>
+      </ScrollPane>
+      <Label fx:id="totalCostOrderedlbl" alignment="CENTER" prefHeight="26.0" prefWidth="96.0" text="Label">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <HBox alignment="CENTER" prefHeight="63.0" prefWidth="390.0" spacing="30.0">
+         <children>
+            <Button fx:id="btnPlaceOrder" mnemonicParsing="false" onAction="#btnPlaceOrderPressed" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #cae0e1; -fx-border-color: black;" text="Buy">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#btnCancelPressed" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #cae0e1; -fx-border-color: black;" text="Cancel">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</VBox>

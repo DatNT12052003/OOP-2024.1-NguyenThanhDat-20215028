@@ -2,9 +2,9 @@ package hust.soict.dsai.aims.media;
 
 public class Track implements Playable{
 	private String title;
-	private int length;
+	private float length;
 	
-	public Track(String title, int length) {
+	public Track(String title, float length) {
 		this.title = title;
 		this.length = length;
 	}
@@ -32,7 +32,7 @@ public class Track implements Playable{
 		this.title = title;
 	}
 
-	public int getLength() {
+	public float getLength() {
 		return length;
 	}
 

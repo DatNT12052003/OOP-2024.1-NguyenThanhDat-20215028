@@ -38,6 +38,7 @@ public abstract class Media {
 		this.cost = cost;
 	}
 	
+	
 
 	public int getId() {
 		return id;
@@ -84,4 +85,8 @@ public abstract class Media {
 	public String toString() {
         return this.getId() +". DVD - " + this.getTitle() + " - " + this.getCategory() + " : " + this.getCost() + "$.";
     }	
+	
+	public void playDialog() {
+		
+	}
 }
