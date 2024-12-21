@@ -3,3 +3,4 @@
 # Lab02: Đã hoàn thành
 # Lab03: Đã hoàn thành
 # Lab04: Đã hoàn thành
+# Lab05: Đã hoàn thành
