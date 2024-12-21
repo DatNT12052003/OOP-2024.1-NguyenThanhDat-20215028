@@ -107,4 +107,9 @@ Q4:	Suppose the DVDs has a different ordering rule from the other media types, t
         return super.compareTo(other); 
     }
 
+Lab5:
+Question: The Aims class must be updated to handle any exceptions generated when the play() methods are called. What happens when you don’t update for them to catch?
+-> Khi không cập nhật lớp Aims để bắt các ngoại lệ (PlayerException) được ném ra trong phương thức play(), một số điều có thể xảy ra:
+	- Chương trình sẽ bị dừng lại: Khi một ngoại lệ không được xử lý, chương trình sẽ ném ngoại lệ và dừng lại tại điểm ngoại lệ đó. Nếu không có khối try-catch ở bất kỳ 	đâu trong lớp gọi phương thức play(), chương trình sẽ gặp lỗi và không thể tiếp tục.
 
+	- Khó duy trì và debug: Nếu ngoại lệ không được bắt và xử lý, sẽ rất khó khăn trong việc kiểm soát các lỗi phát sinh trong chương trình. Điều này làm cho việc duy trì 	và debug trở nên khó khăn, vì sẽ không biết được lý do tại sao phương thức play() không thực thi đúng.

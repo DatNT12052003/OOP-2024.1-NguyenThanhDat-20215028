@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
 import hust.soict.dsai.aims.media.DigitalVideoDisc;
+import hust.soict.dsai.aims.cart.Cart;
 import hust.soict.dsai.aims.media.Book;
 import hust.soict.dsai.aims.media.CompactDisc;
 import hust.soict.dsai.aims.media.Media;
@@ -17,8 +18,24 @@ public class StoreScreen extends JFrame{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	static Store store = new Store();
+	public static Store store = new Store();
 	Container cp = getContentPane();
+	
+	private static Cart cart = new Cart();
+
+	// Phương thức thêm media vào giỏ hàng
+	// Phương thức thêm media vào giỏ hàng, kiểm tra nếu đã có thì không thêm
+	private void addMediaToCart(Media media) {
+	    // Kiểm tra xem media đã tồn tại trong giỏ hàng chưa
+	    if (!cart.getItemsOrdered().contains(media)) {
+	        cart.addMedia(media);  // Thêm media vào giỏ hàng
+	        JOptionPane.showMessageDialog(null, "Media has been added to the cart!", "Success", JOptionPane.INFORMATION_MESSAGE);
+	    } else {
+	        // Nếu đã có rồi, thông báo cho người dùng
+	        JOptionPane.showMessageDialog(null, "This media is already in the cart.", "Error", JOptionPane.ERROR_MESSAGE);
+	    }
+	}
+
 	
 	/**
 	 * Create north area
@@ -50,6 +67,7 @@ public class StoreScreen extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
             	AddDVDScreen.main(null);
+            	updateCenter();
             }
         });
         
@@ -58,6 +76,7 @@ public class StoreScreen extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
             	AddBookScreen.main(null);
+            	updateCenter();
             }
         });
         
@@ -66,6 +85,7 @@ public class StoreScreen extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
             	AddCDScreen.main(null);
+            	updateCenter();
             }
         });
         
@@ -85,37 +105,67 @@ public class StoreScreen extends JFrame{
 	 * create header
 	 */
 	JPanel createHeader() {
-		JPanel header = new JPanel();
-		header.setLayout(new BoxLayout(header, BoxLayout.X_AXIS));
-		
-		JLabel title = new JLabel("AIMS");
-		title.setFont(new Font(title.getFont().getName(), Font.PLAIN, 50));
-		title.setForeground(Color.CYAN);
-		
-		header.add(Box.createRigidArea(new Dimension(10, 10)));
-		header.add(title);
-		header.add(Box.createHorizontalGlue());
-		header.add(Box.createRigidArea(new Dimension(10, 10)));
-		
-		
-		return header;
-	}
+        JPanel header = new JPanel();
+        header.setLayout(new BoxLayout(header, BoxLayout.X_AXIS));
+
+        JLabel title = new JLabel("AIMS - Store");
+        title.setFont(new Font(title.getFont().getName(), Font.PLAIN, 50));
+        title.setForeground(Color.CYAN);
+
+        header.add(Box.createRigidArea(new Dimension(10, 10)));
+        header.add(title);
+        header.add(Box.createHorizontalGlue());
+        header.add(Box.createRigidArea(new Dimension(10, 10)));
+
+        // Thêm nút View Cart vào Header
+        JButton viewCartButton = new JButton("View Cart");
+        viewCartButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	 new CartScreen(cart);
+            	 CartScreen.setStore(store); // Chuyển tới màn hình Cart
+                dispose(); // Đóng StoreScreen hiện tại
+            }
+        });
+        header.add(viewCartButton);
+
+        return header;
+    }
 	
 	/**
 	 * create center area
 	 */
-	JPanel createCenter() {
-		JPanel center = new JPanel();
-		center.setLayout(new GridLayout(3, 2, 2, 2));
-		
-		ArrayList<Media> mediaInStore = store.getItemsInStore();
-		for(int i = 0; i < store.getStoreQuantity(); i++) {
-			MediaStore cell = new MediaStore(mediaInStore.get(i));
-			center.add(cell);
-		}	
-		
-		return center;
+	public JPanel createCenter() {
+	    JPanel center = new JPanel();
+	    center.setLayout(new GridLayout(3, 2, 2, 2));
+
+	    ArrayList<Media> mediaInStore = store.getItemsInStore();
+	    for (int i = 0; i < store.getStoreQuantity(); i++) {
+	        Media media = mediaInStore.get(i);
+	        MediaStore cell = new MediaStore(media);
+
+	        // Thêm nút "Add to Cart"
+	     // Thêm nút "Add to Cart"
+	        JButton addToCartButton = new JButton("Add to Cart");
+	        addToCartButton.addActionListener(new ActionListener() {
+	            @Override
+	            public void actionPerformed(ActionEvent e) {
+	                addMediaToCart(media);  // Thêm media vào giỏ hàng
+	            }
+	        });
+
+	        
+	        JPanel panel = new JPanel();
+	        panel.setLayout(new BorderLayout());
+	        panel.add(cell, BorderLayout.CENTER);
+	        panel.add(addToCartButton, BorderLayout.SOUTH);
+
+	        center.add(panel);
+	    }
+
+	    return center;
 	}
+
 	
 	/**
 	 * view store menuItem's action
@@ -133,6 +183,8 @@ public class StoreScreen extends JFrame{
 			repaint();
 		}
 	}
+	
+	
 	
 	/**
 	 * create Screen
@@ -156,16 +208,11 @@ public class StoreScreen extends JFrame{
 	/**
 	 * launch the Screen
 	 */
-	public static void main(String[] args) {
-		databaseInput();
-		//store.display();
-		new StoreScreen(store);
-	}
 	
 	/**
 	 * initialize the database
 	 */
-	private static void databaseInput() {
+	public static void databaseInput() {
 		DigitalVideoDisc dvd1 = new DigitalVideoDisc("The Lion King", "Animation", "Roger Allers", 87, 19.95f);
 		store.addMedia(dvd1);
 
@@ -218,6 +265,15 @@ public class StoreScreen extends JFrame{
 		book3.addAuthor(author2);
 		book3.addAuthor(author3);
 		store.addMedia(book3);
+	}
+	
+	private void updateCenter() {
+	    getContentPane().removeAll();
+	    cp.add(createNorth(), BorderLayout.NORTH);
+	    JScrollPane scrollPane = new JScrollPane(createCenter());
+	    cp.add(scrollPane, BorderLayout.CENTER);
+	    revalidate();
+	    repaint();
 	}
 	
 }

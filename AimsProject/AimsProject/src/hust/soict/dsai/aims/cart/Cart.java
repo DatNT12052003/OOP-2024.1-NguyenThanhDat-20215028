@@ -11,6 +11,10 @@ import hust.soict.dsai.aims.media.Media;
 public class Cart {
 	private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
 	
+	public Cart() {
+		
+	}
+	
 	public void addDigitalVideoDisc(DigitalVideoDisc dvd) {
 		itemsOrdered.add(dvd);
 	}
@@ -36,6 +40,10 @@ public class Cart {
 	
 	public void removeMedia(Media media) {
 		itemsOrdered.remove(media);
+	}
+	
+	public void removeAllMedia() {
+		
 	}
 	
 	public float totalCost() {
@@ -101,4 +109,14 @@ public class Cart {
 	public ArrayList<Media> getItemsOrdered() {
 		return itemsOrdered;
 	}
+	
+    public boolean containsMedia(Media media) {
+        for (Media m : itemsOrdered) {
+            if (m.equals(media)) {
+                return true;
+            }
+        }
+        return false;
+    }
+	
 }

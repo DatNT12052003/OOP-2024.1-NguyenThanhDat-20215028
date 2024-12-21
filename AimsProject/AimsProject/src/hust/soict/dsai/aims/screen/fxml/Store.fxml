@@ -1,56 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1040.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <HBox alignment="CENTER" prefHeight="102.0" prefWidth="1020.0">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1040.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hust.soict.dsai.aims.controller.StoreScreenController">
+   <top>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets left="20.0" right="20.0" />
+         </BorderPane.margin>
          <children>
-            <Label fx:id="AIMS" text="AIMS" textFill="#004cff">
+            <Label text="STORE" textFill="#004cff">
                <font>
                   <Font size="50.0" />
                </font>
             </Label>
             <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-            <Label fx:id="newItemInCartLabel" alignment="TOP_CENTER" prefHeight="19.0" prefWidth="36.0" style="-fx-background-color: red;" text="New" textFill="#0000009c">
-               <cursor>
-                  <Cursor fx:constant="WAIT" />
-               </cursor>
-            </Label>
-            <Button fx:id="ViewCart" alignment="CENTER" mnemonicParsing="false" onAction="#btnViewCartPressed" prefHeight="50.0" prefWidth="100.0" text="View Cart" textFill="#1d59c2">
+            <Button fx:id="btnAdds" mnemonicParsing="false" onAction="#addToStore" prefHeight="27.0" prefWidth="129.0" style="-fx-background-color: #cae0e1; -fx-border-color: black;" text="Add media">
+               <font>
+                  <Font size="14.0" />
+               </font>
                <HBox.margin>
-                  <Insets right="20.0" />
+                  <Insets right="10.0" />
                </HBox.margin>
+            </Button>
+            <Button fx:id="btnViewStorePressed" mnemonicParsing="false" onAction="#viewCart" prefHeight="50.0" prefWidth="100.0" text="View Cart" textFill="#1f1fc9">
                <font>
                   <Font size="16.0" />
-               </font>
-            </Button>
+               </font></Button>
          </children>
       </HBox>
-      <ScrollPane prefHeight="670.0" prefWidth="1020.0" style="-fx-background-color: #aabbaa;">
-         <content>
-            <GridPane fx:id="gridPane" prefHeight="5.0" prefWidth="62.0">
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-            </GridPane>
-         </content>
-         <padding>
-            <Insets left="10.0" />
-         </padding>
-      </ScrollPane>
-   </children>
-   <padding>
-      <Insets left="20.0" />
-   </padding>
-</VBox>
+   </top>
+   <center>
+      <VBox prefHeight="500.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets left="20.0" right="20.0" />
+         </BorderPane.margin>
+         <children>
+            <TableView fx:id="tblMedia" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #eeefd1;">
+              <columns>
+                <TableColumn fx:id="colMediaTitle" maxWidth="400.0" minWidth="400.0" prefWidth="400.0" text="TITLE" />
+                  <TableColumn fx:id="colMediaCategory" maxWidth="350.0" minWidth="350.0" prefWidth="350.0" text="CATEGORY" />
+                  <TableColumn fx:id="colMediaCost" maxWidth="250.0" minWidth="250.0" prefWidth="250.0" text="COST" />
+              </columns>
+            </TableView>
+            <HBox alignment="TOP_RIGHT" prefHeight="68.0" prefWidth="1000.0" spacing="20.0">
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+               <children>
+                  <Button fx:id="btnAddc" mnemonicParsing="false" onAction="#addToCart" prefHeight="27.0" prefWidth="129.0" style="-fx-background-color: #cae0e1; -fx-border-color: black;" text="Add to Cart">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnPlay" mnemonicParsing="false" onAction="#play" prefHeight="27.0" prefWidth="129.0" style="-fx-background-color: #cae0e1; -fx-border-color: black;" text="Play">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Button>
+                  <Button fx:id="btnDetails" mnemonicParsing="false" onAction="#details" prefHeight="27.0" prefWidth="129.0" style="-fx-background-color: #cae0e1; -fx-border-color: black;" text="Details">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
