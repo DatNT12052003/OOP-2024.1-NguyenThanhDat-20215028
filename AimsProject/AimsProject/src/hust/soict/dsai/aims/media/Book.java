@@ -22,6 +22,11 @@ public class Book extends Media{
 		super(title, category, cost);
 	}
 	
+	public Book(String title, String category, float cost, List<String> authors) {
+		super(title, category, cost);
+		this.authors = authors;
+	}
+	
 	public void addAuthor(String author) {
 	    if (!authors.contains(author)) {
 	        authors.add(author);
@@ -40,6 +45,11 @@ public class Book extends Media{
 		return authors;
 	}
 	
+	
+	public void setAuthors(List<String> authors) {
+		this.authors = authors;
+	}
+
 	@Override
 	public String toString() {
 	    StringBuilder listAuthor = new StringBuilder();
